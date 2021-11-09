@@ -117,32 +117,32 @@ export default function Home() {
         <Wrap justify="center" spacing="8" py="10" px="4" position="relative">
           {Cards.map((elm, idx) => {
             return (
-              <MotionWrapItem key={idx} rounded="md" bg={colorNav} w={[150, 200, 350]} h={[200, 275, 500]} position="relative" justifyContent="center" alignItems="center" boxShadow="xl" initial={{opacity: 0}} animate={{opacity: 1, transition:{duration: 0.5 + idx/2}}} onClick={() => setTap(isTap === idx ? -1 : idx)} overflow="hidden">
+              <MotionWrapItem key={idx} rounded="md" bg={colorNav} w={[220, 350]} h={[295, 500]} position="relative" justifyContent="center" alignItems="center" boxShadow="xl" initial={{opacity: 0}} animate={{opacity: 1, transition:{duration: 0.5 + idx/2}}} onClick={() => setTap(isTap === idx ? -1 : idx)} overflow="hidden">
                 {idx === 0 ?
                   <>
-                    <Icon w={[6, 8, 14]} h={[6, 8, 14]} as={GiJesterHat} color={colorCard} position="absolute" top={4} right={4}/>
+                    <Icon w={[8, 14]} h={[8, 14]} as={GiJesterHat} color={colorCard} position="absolute" top={4} right={4}/>
                     <Text fontSize={["4xl", "6xl", "8xl"]} >{cardNameList[idx]}</Text>
-                    <Icon w={[6, 8, 14]} h={[6, 8, 14]} as={GiJesterHat} color={colorCard} position="absolute" bottom={4} left={4}/>
+                    <Icon w={[8, 14]} h={[8, 14]} as={GiJesterHat} color={colorCard} position="absolute" bottom={4} left={4}/>
                   </>
                   :
                   <>
-                    <Icon w={[6, 8, 14]} h={[6, 8, 14]} as={colorMode == "light" ? ImHeart : ImClubs } position="absolute" top={4} right={4} color={colorCard}/>
+                    <Icon w={[8, 14]} h={[8, 14]} as={colorMode == "light" ? ImHeart : ImClubs } position="absolute" top={4} right={4} color={colorCard}/>
                       <Text fontSize={["4xl", "6xl", "8xl"]} >{cardNameList[idx]}</Text>
-                    <Icon w={[6, 8, 14]} h={[6, 8, 14]} as={colorMode == "light" ? ImDiamonds : ImSpades } position="absolute" bottom={4} left={4} color={colorCard}/>
+                    <Icon w={[8, 14]} h={[8, 14]} as={colorMode == "light" ? ImDiamonds : ImSpades } position="absolute" bottom={4} left={4} color={colorCard}/>
                   </>
                 }
                 <AnimatePresence>
                 { idx === isTap &&
-                    <MotionFlex key={idx*2} p="5" rounded="md" bg={colorNav} position="absolute" top={0} left={0} w={[150, 200, 350]} h={[200, 275, 500]} justifyContent="space-between" alignItems="center" direction="column" initial={{y: 500}} animate={{y: 0, transition: {duration: 0.1, type: "spring", damping: 20, swiftness: 100}}} exit={{y: 500, transition: {duration: 0.2}}} onClick={() => setTap(isTap === idx ? -1 : idx)} zIndex={2}>
+                    <MotionFlex key={idx*2} p="5" rounded="md" bg={colorNav} position="absolute" top={0} left={0} w={[220, 350]} h={[295, 500]} justifyContent="space-between" alignItems="center" direction="column" initial={{y: 500}} animate={{y: 0, transition: {duration: 0.1, type: "spring", damping: 20, swiftness: 100}}} exit={{y: 500, transition: {duration: 0.2}}} onClick={() => setTap(isTap === idx ? -1 : idx)} zIndex={2}>
                       <Box w="100%">
                         <Heading color={colorCard} size="lg" mb="5">{Cards[idx].name}</Heading>
                         <Divider orientation="horizontal" />
                       </Box>
                       <Flex justifyContent="center" alignItems="center" mt="5">
-                        <Icon w={[6, 8, 14]} h={[6, 8, 14]} as={GiDrinking} />
-                        <Heading size="2xl" ml="4">{Cards[idx].drink}</Heading>
+                        <Icon w={[8, 14]} h={[8, 14]} as={GiDrinking} />
+                        <Heading size="xl" ml="4">{Cards[idx].drink}</Heading>
                       </Flex>
-                      <Text mt="20" bg={colorTxtCard} boxShadow="inner" rounded="md" w="100%" h="100%" p="4" align="left">{Cards[idx].effect}</Text>
+                      <Text overflow="scroll" mt={["15", "20"]} bg={colorTxtCard} boxShadow="inner" rounded="md" w="100%" h="100%" p="4" align="left">{Cards[idx].effect}</Text>
                     </MotionFlex>
                 }
                 </AnimatePresence>
