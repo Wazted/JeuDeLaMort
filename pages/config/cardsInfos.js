@@ -61,8 +61,8 @@ export const Cards = [
   },
   {
     name:"10",
-    effect:"Bois la moitié (+) du chiffre de la dizaine de ton poids",
-    drink: 5,
+    effect:"Bois la moitié de la dizaine de ton poids",
+    drink: 0,
     dinkTarget: 0
   },
   {
