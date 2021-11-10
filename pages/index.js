@@ -207,7 +207,7 @@ const Cards = [
   },
   {
     name:"5",
-    effect:"La poutre",
+    effect:"La poutre: dire un mot, le joueur suivant doit en dire un du meme thème (+ 1 gorgée par tour)",
     drink: 0,
     dinkTarget: 0
   },
@@ -249,13 +249,13 @@ const Cards = [
   },
   {
     name:"Q",
-    effect:"Désigner un couple ou annule",
+    effect:"Creer un couple ou annule en un si pas possible",
     drink: 0,
     dinkTarget: 0
   },
   {
     name:"R",
-    effect:"Boushot",
+    effect:"Boushot (shot bouchon)",
     drink: 0,
     dinkTarget: 0
   }
