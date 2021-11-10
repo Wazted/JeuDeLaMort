@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import NextLink from 'next/link'
@@ -30,12 +29,6 @@ export default function Home() {
 
   return (
     <Box>
-      <Head>
-        <title>Jeu de la mort</title>
-        <meta name="description" content="Next ChakraUI Framer Motion" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <NavBar colorNav={colorNav} colorTheme={colorTheme} />
       <Flex align="center" justify="center" direction="column" py="20" textAlign="center">
         <Heading size="xl">On se fait une partie ?</Heading>

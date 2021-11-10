@@ -46,6 +46,7 @@ export default function NavBar(props) {
           <MotionFlex
             p="2"
             bg={props.colorNav}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Icon as={FaSkull} color={props.colorTheme}/>
