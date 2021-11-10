@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaSkull } from 'react-icons/fa'
 import { ImClubs, ImSpades, ImHeart, ImDiamonds } from 'react-icons/im'
-import { GiJesterHat, GiDrinking } from 'react-icons/gi'
+import { GiJesterHat, GiDrinking, GiPistolGun } from 'react-icons/gi'
 import NextLink from 'next/link'
 import { SunIcon,
   MoonIcon,
@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <Box>
       <Head>
-        <title>Online Chat</title>
+        <title>Jeu de la mort</title>
         <meta name="description" content="Next ChakraUI Framer Motion" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -135,14 +135,16 @@ export default function Home() {
                 { idx === isTap &&
                     <MotionFlex key={idx*2} p="5" rounded="md" bg={colorNav} position="absolute" top={0} left={0} w={[220, 350]} h={[295, 500]} justifyContent="space-between" alignItems="center" direction="column" initial={{y: 500}} animate={{y: 0, transition: {duration: 0.1, type: "spring", damping: 20, swiftness: 100}}} exit={{y: 500, transition: {duration: 0.2}}} onClick={() => setTap(isTap === idx ? -1 : idx)} zIndex={2}>
                       <Box w="100%">
-                        <Heading color={colorCard} size="lg" mb="5">{Cards[idx].name}</Heading>
+                        <Heading color={colorCard} size="lg" mb="5">{elm.name}</Heading>
                         <Divider orientation="horizontal" />
                       </Box>
                       <Flex justifyContent="center" alignItems="center" mt="5">
                         <Icon w={[8, 14]} h={[8, 14]} as={GiDrinking} />
-                        <Heading size="xl" ml="4">{Cards[idx].drink}</Heading>
+                        <Heading size="xl" ml="2">{elm.drink}</Heading>
+                        <Icon w={[8, 14]} h={[8, 14]} ml="2" as={GiPistolGun} />
+                        <Heading size="xl" ml="2">{elm.dinkTarget}</Heading>
                       </Flex>
-                      <Text overflow="scroll" mt={["15", "20"]} bg={colorTxtCard} boxShadow="inner" rounded="md" w="100%" h="100%" p="4" align="left">{Cards[idx].effect}</Text>
+                      <Text overflow="scroll" mt={["15", "20"]} bg={colorTxtCard} boxShadow="inner" rounded="md" w="100%" h="100%" p="4" align="left">{elm.effect}</Text>
                     </MotionFlex>
                 }
                 </AnimatePresence>
@@ -177,70 +179,84 @@ const Cards = [
     name:"Joker",
     effect:"Tirer 3 cartes",
     drink: 0,
+    dinkTarget: 0
   },
   {
     name:"As",
     effect:"Défis un joueur au chifoumi le perdant prend un cul sec",
     drink: 0,
+    dinkTarget: 0
   },
   {
     name:"2",
     effect:"Désigne 1 joueur qui boira double au prochain tour",
     drink: 0,
+    dinkTarget: 0
   },
   {
     name:"3",
     effect:"Désigne 3 joueurs qui se distribuent 3 gorgées entre eux dans l’ordre souhaité",
     drink: 0,
+    dinkTarget: 3
   },
   {
     name:"4",
-    effect:"Bois",
+    effect:"Bois 4",
     drink: 4,
+    dinkTarget: 0
   },
   {
     name:"5",
     effect:"La poutre",
     drink: 0,
+    dinkTarget: 0
   },
   {
     name:"6",
     effect:"Pistolet à 6 balles (1 max)",
     drink: 0,
+    dinkTarget: 6
   },
   {
     name:"7",
     effect:"Thème (+ 1 gorgée par tour)",
     drink: 0,
+    dinkTarget: 0
   },
   {
     name:"8",
     effect:"Distribues à 4 joueurs différents les 4 chiffres de l’heure actuelle",
     drink: 0,
+    dinkTarget: 0
   },
   {
     name:"9",
     effect:"4 gorgées à droite, 4 à gauche et 1 pour toi",
-    drink: 0,
+    drink: 1,
+    dinkTarget: 8
   },
   {
     name:"10",
     effect:"Bois la moitié (+) du chiffre de la dizaine de ton poids",
     drink: 0,
+    dinkTarget: 0
   },
   {
     name:"J",
-    effect:"Tout le monde boit",
+    effect:"Tout le monde boit 2",
     drink: 2,
+    dinkTarget: 2
   },
   {
     name:"Q",
     effect:"Désigner un couple ou annule",
     drink: 0,
+    dinkTarget: 0
   },
   {
     name:"R",
     effect:"Boushot",
     drink: 0,
+    dinkTarget: 0
   }
 ]
