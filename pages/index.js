@@ -11,7 +11,6 @@ import { SunIcon,
   InfoIcon,
   ExternalLinkIcon,
 } from '@chakra-ui/icons'
-import { SlideFade } from '@chakra-ui/transition'
 import {
   Menu,
   MenuButton,
@@ -207,7 +206,7 @@ const Cards = [
   },
   {
     name:"5",
-    effect:"La poutre: dire un mot, le joueur suivant doit en dire un du meme thème (+ 1 gorgée par tour)",
+    effect:"La poutre: dire un mot, dire un mot en rapport un par un (+ 1 gorgée par tour)",
     drink: 0,
     dinkTarget: 0
   },
@@ -219,7 +218,7 @@ const Cards = [
   },
   {
     name:"7",
-    effect:"Thème (+ 1 gorgée par tour)",
+    effect:"Thème: choix d'un thème, dire un mot de ce thème un par un (+ 1 gorgée par tour)",
     drink: 0,
     dinkTarget: 0
   },
