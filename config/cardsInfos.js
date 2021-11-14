@@ -1,4 +1,4 @@
-const Cards = [
+export const Cards = [
   {
     name:"Joker",
     effect:"Tirer 3 cartes",
@@ -85,5 +85,3 @@ const Cards = [
   }
 ]
 
-
-export default Cards
