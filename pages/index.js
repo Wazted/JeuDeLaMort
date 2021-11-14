@@ -10,9 +10,9 @@ import {
   Button,
 } from "@chakra-ui/react"
 import { Cards } from '../config/cardsInfos';
-import Card from "./components/Card"
-import CardDetails from './components/CardDetails';
-import NavBar from './components/NavBar';
+import Card from "../components/Card"
+import CardDetails from '../components/CardDetails';
+import NavBar from '../components/NavBar';
 
 const MotionButton = motion(Button);
 
