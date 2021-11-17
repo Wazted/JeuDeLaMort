@@ -35,8 +35,8 @@ export default function Game() {
   }
 
   const StepOfGame = [
-    <PlayerSelector inc={incrementPlayerCount} dec={decrementPlayerCount} value={playerCount} goNext={() => setStepOfGame(gameStep + 1)}/>,
-    <PlayerNames playerCount={playerCount} goNext={() => setStepOfGame(gameStep + 1)}/>,
+    <PlayerSelector key={0} inc={incrementPlayerCount} dec={decrementPlayerCount} value={playerCount} goNext={() => setStepOfGame(gameStep + 1)}/>,
+    <PlayerNames key={1} playerCount={playerCount} goNext={() => setStepOfGame(gameStep + 1)}/>,
     <><Spinner mb="2"/>
     oui bah attends que je finisse nan ?</>,
   ]
