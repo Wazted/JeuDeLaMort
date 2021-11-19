@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import { MinusIcon, AddIcon, CheckIcon } from '@chakra-ui/icons'
 import {
-  GridItem,
-  Grid,
+  Wrap,
+  WrapItem,
   Button,
   Text,
   Input,
@@ -65,24 +65,18 @@ export default function PlayerNames(props) {
   return(
     <>
     <Text>Entrez vos noms</Text>
-    <Grid
-      h="100%"
-      templateRows="repeat(4, 1fr)"
-      templateColumns="repeat(20, 1fr)"
-      gap={5}
-      my="4"
-    >
+    <Wrap justify="center" spacing="8" py="6" px="14">
       {
         Array.from({ length: props.playerCount }, (_, k) => (
-          <GridItem key={k} colSpan={10} rounded="md">
-            <Flex justify="space-between" align="center">
+          <WrapItem key={k} rounded="md">
+            <Flex justify="space-between" align="center" w="100%">
               {k+1}:
               <Input ml="1" onChange={(val) => setNeededName(val, k)}/>
             </Flex>
-          </GridItem>
+          </WrapItem>
         ))
       }
-    </Grid>
+    </Wrap>
     <Button mb="4" leftIcon={<CheckIcon />} onClick={validateMe}>Valider</Button>
     </>
   )
