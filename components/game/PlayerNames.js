@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
-import { MinusIcon, AddIcon, CheckIcon } from '@chakra-ui/icons'
+import { MinusIcon, WarningIcon, CheckIcon, Icon } from '@chakra-ui/icons'
 import {
   Wrap,
   WrapItem,
@@ -13,11 +13,9 @@ import {
 } from "@chakra-ui/react"
 
 export default function PlayerNames(props) {
-  const toast = useToast()
-  const colorBg = useColorModeValue("gray.50", "gray.900");
-  const colorInput = useColorModeValue("gray.900", "gray.50");
-  const [names, setNames] = useState([]);
-  const [nameInputs, setNameInputs] = useState([]);
+  const toast = useToast();
+  const colorBg = useColorModeValue("gray.200", "whiteAlpha.200");
+  const [names, setNames] = useState(props.preNames || []);
 
   function setNeededName(event, idx) {
     names[idx] = event.target.value;
@@ -34,7 +32,6 @@ export default function PlayerNames(props) {
 
   function validateMe() {
     const errored = false;
-    console.log(props.playerCount)
     for (let idx = 0; idx < props.playerCount; idx++) {
       if (!names[idx] || names[idx] === "") {
         toast({
@@ -59,25 +56,32 @@ export default function PlayerNames(props) {
         })
       }
     }
-    if (!errored) {props.goNext()}
+    if (!errored) {
+      props.goNext()
+      props.saveNames(names)
+    }
   }
 
   return(
     <>
-    <Text>Entrez vos noms</Text>
-    <Wrap justify="center" spacing="8" py="6" px="14">
-      {
-        Array.from({ length: props.playerCount }, (_, k) => (
-          <WrapItem key={k} rounded="md">
-            <Flex justify="space-between" align="center" w="100%">
-              {k+1}:
-              <Input ml="1" onChange={(val) => setNeededName(val, k)}/>
-            </Flex>
-          </WrapItem>
-        ))
-      }
-    </Wrap>
-    <Button mb="4" leftIcon={<CheckIcon />} onClick={validateMe}>Valider</Button>
+      <Text mt={[14, 8, 0, 0]}>Entrez vos noms</Text>
+      <Flex bg={colorBg} borderRadius={10} m={4} justify="space-evenly" align="center" p={2}>
+        <WarningIcon mr={2}/>
+        {`Les noms sont dans l'ordre du jeu (1 = 1er joueur)`}
+      </Flex>
+      <Wrap justify="center" spacing="8" py="6" px="14">
+        {
+          Array.from({ length: props.playerCount }, (_, k) => (
+            <WrapItem key={k} rounded="md">
+              <Flex justify="space-between" align="center" w="100%">
+                {k+1}:
+                <Input ml="1" defaultValue={names[k]} onChange={(val) => setNeededName(val, k)}/>
+              </Flex>
+            </WrapItem>
+          ))
+        }
+      </Wrap>
+      <Button mb="4" leftIcon={<CheckIcon />} onClick={validateMe}>Valider</Button>
     </>
   )
 }

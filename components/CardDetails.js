@@ -24,7 +24,7 @@ export default function CardDetails(props) {
         <Icon w={[8, 14]} h={[8, 14]} ml="2" as={GiPistolGun} />
         <Heading size="xl" ml="2">{props.card.dinkTarget}</Heading>
       </Flex>
-      <Text overflow="scroll" mt={["15", "20"]} bg={props.colorTxtCard} boxShadow="inner" rounded="md" w="100%" h="100%" p="4" align="left">{props.card.effect}</Text>
+      <Text css={{'&::-webkit-scrollbar': { display: 'none'}, '&': {"msOverflowStyle": "none", 'scrollbarWidth': 'none'}}} overflow="scroll" mt={["15", "20"]} bg={props.colorTxtCard} boxShadow="inner" rounded="md" w="100%" h="100%" p="4" align="left">{props.card.effect}</Text>
     </MotionFlex>
   );
 }
